@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital@0;1&display=swap');
+@import './components.scss';
 
 /* Указываем box sizing */
 *,
@@ -45,4 +46,5 @@ body {
   height: 100vh;
   max-width: 1440px;
   margin: 0 160px 0 320px;
+  position: relative;
 }
