@@ -1,0 +1,24 @@
+.swiperContainer {
+  padding: 170px 40px 104px 78px;
+  height: 100vh;
+}
+
+.swiper {
+
+  &__title {
+    font-size: 56px;
+    line-height: 67px;
+    color: #42567A;
+    width: 353px;
+    font-weight: 700;
+  }
+
+  &__dateRange {
+    font-size: 200px;
+    line-height: 160px;
+    color: #5D5FEF;
+    font-weight: 700;
+    margin-top: 96px;
+    margin-left: 139px;
+  }
+}
