@@ -13,12 +13,31 @@
     font-weight: 700;
   }
 
+  &__dateRangeWrapper {
+    margin: 0 210px 0 139px;
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__dateRange {
     font-size: 200px;
     line-height: 160px;
     color: #5D5FEF;
     font-weight: 700;
     margin-top: 96px;
-    margin-left: 139px;
+  }
+
+  &__year {
+    font-size: 25px;
+    line-height: 30px;
+    margin-bottom: 15px;
+    color: #3877EE;
+    font-family: 'Bebas Neue', sans-serif;
+  }
+
+  &__text {
+    font-size: 20px;
+    line-height: 30px;
+    color: #42567A;
   }
 }

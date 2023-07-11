@@ -11,6 +11,7 @@ const Container = (props: IContainerProps) => {
     <>
       <Line />
       <Line right='0' />
+      <Line right='720px' />
       <Line top='480px' horizontal />
       <ColoredLine />
       {props.children}
