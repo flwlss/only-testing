@@ -121,3 +121,7 @@ body {
 .swiper-button-prev.swiper-button-disabled {
   display: none;
 }
+
+.swiper-wrapper {
+  order: 2;
+}

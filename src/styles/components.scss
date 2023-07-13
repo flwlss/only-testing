@@ -18,3 +18,76 @@
   position: absolute;
   top: 177px;
 }
+
+
+.swiperButtons {
+  display: flex;
+  margin: 20px 0 55px;
+
+  &__left {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 1px solid rgba($color: #42567A, $alpha: 0.5);
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      content: '';
+      width: 2px;
+      height: 10px;
+      background-color: black;
+      position: absolute;
+      transform: rotate(45deg);
+      bottom: 22px;
+    }
+
+    &::after {
+      content: '';
+      width: 2px;
+      height: 10px;
+      background-color: black;
+      position: absolute;
+      transform: rotate(-45deg);
+      top: 22px;
+    }
+  }
+
+  &__right {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 1px solid rgba($color: #42567A, $alpha: 0.5);
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+
+    &::before {
+      content: '';
+      width: 2px;
+      height: 10px;
+      background-color: black;
+      position: absolute;
+      transform: rotate(-45deg);
+      bottom: 22px;
+    }
+
+    &::after {
+      content: '';
+      width: 2px;
+      height: 10px;
+      background-color: black;
+      position: absolute;
+      transform: rotate(45deg);
+      top: 22px;
+    }
+  }
+}

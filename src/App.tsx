@@ -1,14 +1,14 @@
 import React from 'react';
 import './styles/styles.scss'
 import Container from './components/Container';
-import MySwiper from './components/MySwiper';
+import MySwiperContainer from './components/MySwiperContainer';
 
 function App() {
   return (
     <>
       <Container>
         <div className='swiperContainer'>
-          <MySwiper />
+          <MySwiperContainer />
         </div>
       </Container>
     </>
