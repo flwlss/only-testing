@@ -4,6 +4,7 @@ import { EffectFade, Navigation, Pagination } from 'swiper'
 import MySwiper from './MySwiper';
 import MySwiperButtons from './MySwiperButtons';
 import { myObject } from '../common/constants';
+import MySwiperYears from './MySwiperYears';
 
 const MySwiperContainer = () => {
 
@@ -14,15 +15,16 @@ const MySwiperContainer = () => {
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <div>
         <h1 className='swiper__title'>Исторические даты</h1>
-        <div className='swiper__dateRangeWrapper'>
-          <p className='swiper__dateRange'>2015</p>
-          <p style={{ color: '#EF5DA8' }} className='swiper__dateRange'>2025</p>
-        </div>
+        <MySwiperYears slideIndex={slideIndex} />
       </div>
       <div style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
         <p>{`${slideIndex.toString().padStart(2, '0')}/${sliderLength.toString().padStart(2, '0')}`}</p>
         <div>
           <Swiper
+            modules={[Pagination]}
+            pagination={{
+              clickable: true,
+            }}
             speed={0}
             style={{ display: 'flex', flexDirection: 'column' }}
             onSlideChange={(item) => {
