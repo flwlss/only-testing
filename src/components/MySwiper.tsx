@@ -1,6 +1,5 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import { keyEvents } from '../common/constants';
 import { Navigation } from 'swiper'
 
 type MySwiper = {

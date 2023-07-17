@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import {   keyEvents1, keyEvents2 } from '../common/constants';
 import { EffectFade, Navigation, Pagination } from 'swiper'
 import MySwiper from './MySwiper';
 import MySwiperButtons from './MySwiperButtons';
@@ -9,6 +8,7 @@ import { myObject } from '../common/constants';
 const MySwiperContainer = () => {
 
   const [slideIndex, setSlideIndex] = useState(1)
+  const [sliderLength, setSliderLength] = useState(Object.keys(myObject).length)
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
@@ -20,7 +20,7 @@ const MySwiperContainer = () => {
         </div>
       </div>
       <div style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-        <p>{`0${slideIndex}/0${Object.keys(myObject).length}`}</p>
+        <p>{`${slideIndex.toString().padStart(2, '0')}/${sliderLength.toString().padStart(2, '0')}`}</p>
         <div>
           <Swiper
             speed={0}
