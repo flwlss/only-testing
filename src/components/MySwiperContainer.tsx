@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { keyEvents } from '../common/constants';
+// import {   keyEvents1, keyEvents2 } from '../common/constants';
 import { EffectFade, Navigation, Pagination } from 'swiper'
 import MySwiper from './MySwiper';
 import MySwiperButtons from './MySwiperButtons';
+import { myObject } from '../common/constants';
 
 const MySwiperContainer = () => {
 
@@ -19,9 +20,10 @@ const MySwiperContainer = () => {
         </div>
       </div>
       <div style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-        <p>{`0${slideIndex}/06`}</p>
+        <p>{`0${slideIndex}/0${Object.keys(myObject).length}`}</p>
         <div>
           <Swiper
+            speed={0}
             style={{ display: 'flex', flexDirection: 'column' }}
             onSlideChange={(item) => {
               setSlideIndex(item.activeIndex + 1)
@@ -29,12 +31,17 @@ const MySwiperContainer = () => {
             allowTouchMove={false}>
             <SwiperSlide>
               <div>
-                <MySwiper />
+                <MySwiper keyEvents={myObject.array1} />
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div>
-                <MySwiper />
+                <MySwiper keyEvents={myObject.array2} />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div>
+                <MySwiper keyEvents={myObject.array3} />
               </div>
             </SwiperSlide>
             <MySwiperButtons />

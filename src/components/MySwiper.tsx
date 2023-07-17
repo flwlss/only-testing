@@ -1,9 +1,18 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { keyEvents } from '../common/constants';
+// import { keyEvents } from '../common/constants';
 import { Navigation } from 'swiper'
 
-const MySwiper = () => {
+type MySwiper = {
+  year: string;
+  text: string;
+}
+
+interface IMySwiperProps {
+  keyEvents: MySwiper[]
+}
+
+const MySwiper = (props: IMySwiperProps) => {
   return (
     <Swiper
       slidesPerView={3}
@@ -11,7 +20,7 @@ const MySwiper = () => {
       modules={[Navigation]}
       navigation={true}
       grabCursor={true}>
-      {keyEvents.map((item, index) => {
+      {props.keyEvents.map((item, index) => {
         return (
           <SwiperSlide key={index}>
             <div style={{ paddingRight: 80 }} >
