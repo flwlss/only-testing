@@ -31,21 +31,20 @@ const MySwiperContainer = () => {
   }, [startValue, endValue, slideIndex])
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+    <div className='mySwiper'>
       <div>
-        <h1 className='swiper__title'>Исторические даты</h1>
+        <h1 className='mySwiper__title'>Исторические даты</h1>
         <MySwiperYears
           startValue={startValue}
           endValue={endValue} />
       </div>
-      <div style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-        <p>{`${slideIndex.toString().padStart(2, '0')}/${sliderLength.toString().padStart(2, '0')}`}</p>
+      <div className='mySwiper__container'>
         <div>
           <Swiper
-            modules={[Pagination]}
-            pagination={{
-              clickable: true,
-            }}
+            // modules={[Pagination]}
+            // pagination={{
+            //   clickable: true,
+            // }}
             speed={0}
             style={{ display: 'flex', flexDirection: 'column' }}
             onSlideChange={(item) => {
@@ -67,9 +66,12 @@ const MySwiperContainer = () => {
                 <MySwiper keyEvents={myObject.array3} />
               </div>
             </SwiperSlide>
-            <MySwiperButtons
-              slideIndex={slideIndex}
-              slidesLength={sliderLength} />
+            <div>
+              <p className='mySwiper__slides'>{`${slideIndex.toString().padStart(2, '0')}/${sliderLength.toString().padStart(2, '0')}`}</p>
+              <MySwiperButtons
+                slideIndex={slideIndex}
+                slidesLength={sliderLength} />
+            </div>
           </Swiper>
         </div>
       </div>

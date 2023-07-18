@@ -30,14 +30,14 @@ const MySwiperYears = (props: IMySwiperYears) => {
   }, [props.endValue]);
 
   return (
-    <div className='swiper__dateRangeWrapper'>
+    <div className='mySwiper__dateRangeWrapper'>
       <p
         ref={startValueRef}
-        className='swiper__dateRange'>2015</p>
+        className='mySwiper__dateRange'>2015</p>
       <p
         style={{ color: '#EF5DA8' }}
         ref={endValueRef}
-        className='swiper__dateRange'>2022</p>
+        className='mySwiper__dateRange'>2022</p>
     </div>
   )
 }

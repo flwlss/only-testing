@@ -53,6 +53,11 @@ body {
   margin: 0 auto;
   position: relative;
   background: #F4F5F9;
+
+  @media (max-width: 1439px) {
+    max-width: 320px;
+    min-width: 320px;
+  }
 }
 
 .swiper-button-next {
@@ -63,6 +68,10 @@ body {
   box-shadow: 0 0 15px rgba(56, 119, 238, 0.1);
   position: absolute;
   right: 0;
+
+  @media (max-width: 1439px) {
+    display: none;
+  }
 
   &::before {
     content: '';
@@ -95,6 +104,10 @@ body {
   position: absolute;
   left: 0;
 
+  @media (max-width: 1439px) {
+    display: none;
+  }
+
   &::before {
     content: '';
     width: 2px;
@@ -124,4 +137,8 @@ body {
 
 .swiper-wrapper {
   order: 2;
+
+  @media (max-width: 1439px) {
+    order: 0;
+  }
 }

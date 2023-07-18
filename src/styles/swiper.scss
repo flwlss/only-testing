@@ -1,9 +1,16 @@
 .swiperContainer {
   padding: 170px 40px 104px 78px;
   height: 100vh;
+
+  @media (max-width: 1439px) {
+    padding: 59px 20px 13px 20px;
+  }
 }
 
-.swiper {
+.mySwiper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
   &__title {
     font-size: 56px;
@@ -11,12 +18,49 @@
     color: #42567A;
     width: 353px;
     font-weight: 700;
+
+    @media (max-width: 1439px) {
+      font-size: 20px;
+      width: 123px;
+      line-height: 24px;
+    }
+  }
+
+  &__container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    @media (max-width: 1439px) {
+      height: auto;
+      border-top: 1px solid #C7CDD9;
+      padding-top: 20px;
+    }
+  }
+
+  &__slides {
+    font-size: 14px;
+    color: #42567A;
+    line-height: 18px;
+  }
+
+  &__dataWrapper {
+    margin-right: 80px;
+
+    @media (max-width: 1439px) {
+      margin-right: 0;
+    }
   }
 
   &__dateRangeWrapper {
     margin: 0 210px 0 139px;
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 1439px) {
+      margin: 0;
+    }
   }
 
   &__dateRange {
@@ -25,6 +69,13 @@
     color: #5D5FEF;
     font-weight: 700;
     margin-top: 96px;
+
+    @media (max-width: 1439px) {
+      font-size: 56px;
+      margin-top: 56px;
+      margin-bottom: 57px;
+      line-height: 72px;
+    }
   }
 
   &__year {
@@ -33,11 +84,21 @@
     margin-bottom: 15px;
     color: #3877EE;
     font-family: 'Bebas Neue', sans-serif;
+
+    @media (max-width: 1439px) {
+      font-size: 16px;
+      line-height: 20px;
+    }
   }
 
   &__text {
     font-size: 20px;
     line-height: 30px;
     color: #42567A;
+
+    @media (max-width: 1439px) {
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 }
