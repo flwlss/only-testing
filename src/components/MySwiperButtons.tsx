@@ -1,14 +1,38 @@
 import React from 'react'
 import { useSwiper } from 'swiper/react'
+import { Power1, gsap } from "gsap";
 
-const MySwiperButtons = () => {
+interface IMyButtonsProps {
+  slideIndex: number;
+  slidesLength: number;
+}
+
+const MySwiperButtons = (props: IMyButtonsProps) => {
 
   const swiper = useSwiper()
 
+  const onPrevClick = () => {
+    const tl = gsap.timeline();
+    tl.fromTo('.mySwiper', { opacity: 0 }, { opacity: 1, duration: 0.5, ease: Power1.easeIn })
+    swiper.slidePrev()
+  }
+
+  const onNextClick = () => {
+    const tl = gsap.timeline();
+    tl.fromTo('.mySwiper', { opacity: 0 }, { opacity: 1, duration: 0.5, ease: Power1.easeIn })
+    swiper.slideNext()
+  }
+
   return (
     <div className='swiperButtons'>
-      <button onClick={() => { swiper.slidePrev() }} className='swiperButtons__left' />
-      <button onClick={() => { swiper.slideNext() }} className='swiperButtons__right'></button>
+      <button
+        disabled={props.slideIndex === 1}
+        onClick={onPrevClick}
+        className={props.slideIndex === 1 ? 'swiperButtons__left disabledSwiperButton' : 'swiperButtons__left'} />
+      <button
+        disabled={props.slideIndex === props.slidesLength}
+        onClick={onNextClick}
+        className={props.slideIndex === props.slidesLength ? 'swiperButtons__right disabledSwiperButton' : 'swiperButtons__right'} />
     </div>
   )
 }

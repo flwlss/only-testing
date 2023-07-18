@@ -1,35 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
+import { Power1, gsap } from "gsap";
 
 interface IMySwiperYears {
-  slideIndex: number
+  startValue: number;
+  endValue: number;
 }
 
 const MySwiperYears = (props: IMySwiperYears) => {
 
-  const [start, setStart] = useState('2015')
-  const [end, setEnd] = useState('2022')
+  const startValueRef = useRef(null);
+  const endValueRef = useRef(null);
 
   useEffect(() => {
-    switch (props.slideIndex) {
-      case 1:
-        setStart('2015')
-        setEnd('2022')
-        break;
-      case 2:
-        setStart('2030')
-        setEnd('2040')
-        break;
-      case 3:
-        setStart('1999')
-        setEnd('2005')
-        break;
-    }
-  }, [props.slideIndex])
+    gsap.to(startValueRef.current, {
+      duration: 0.5,
+      innerText: props.startValue,
+      ease: Power1.easeIn
+    });
+  }, [props.startValue]);
+
+  useEffect(() => {
+    gsap.to(endValueRef.current, {
+      duration: 0.5,
+      innerText: props.endValue,
+      ease: Power1.easeIn
+    });
+  }, [props.endValue]);
 
   return (
     <div className='swiper__dateRangeWrapper'>
-      <p className='swiper__dateRange'>{start}</p>
-      <p style={{ color: '#EF5DA8' }} className='swiper__dateRange'>{end}</p>
+      <p
+        ref={startValueRef}
+        className='swiper__dateRange'>2015</p>
+      <p
+        style={{ color: '#EF5DA8' }}
+        ref={endValueRef}
+        className='swiper__dateRange'>2022</p>
     </div>
   )
 }

@@ -14,6 +14,7 @@ interface IMySwiperProps {
 const MySwiper = (props: IMySwiperProps) => {
   return (
     <Swiper
+      className='mySwiper'
       slidesPerView={3}
       spaceBetween={30}
       modules={[Navigation]}

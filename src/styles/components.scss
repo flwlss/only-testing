@@ -40,7 +40,7 @@
       content: '';
       width: 2px;
       height: 10px;
-      background-color: black;
+      background-color: #42567A;
       position: absolute;
       transform: rotate(45deg);
       bottom: 22px;
@@ -50,7 +50,7 @@
       content: '';
       width: 2px;
       height: 10px;
-      background-color: black;
+      background-color: #42567A;
       position: absolute;
       transform: rotate(-45deg);
       top: 22px;
@@ -74,7 +74,7 @@
       content: '';
       width: 2px;
       height: 10px;
-      background-color: black;
+      background-color: #42567A;
       position: absolute;
       transform: rotate(-45deg);
       bottom: 22px;
@@ -84,10 +84,22 @@
       content: '';
       width: 2px;
       height: 10px;
-      background-color: black;
+      background-color: #42567A;
       position: absolute;
       transform: rotate(45deg);
       top: 22px;
     }
+  }
+}
+
+.disabledSwiperButton {
+  border: 1px solid rgba($color: #42567A, $alpha: 0.3);
+
+  &::before {
+    background-color: rgba($color: #42567A, $alpha: 0.3);
+  }
+
+  &::after {
+    background-color: rgba($color: #42567A, $alpha: 0.3);
   }
 }
