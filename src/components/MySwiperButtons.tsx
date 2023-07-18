@@ -13,13 +13,13 @@ const MySwiperButtons = (props: IMyButtonsProps) => {
 
   const onPrevClick = () => {
     const tl = gsap.timeline();
-    tl.fromTo('.mySwiper', { opacity: 0 }, { opacity: 1, duration: 0.5, ease: Power1.easeIn })
+    tl.fromTo('.mySwiper', { opacity: 0 }, { opacity: 1, duration: 1, ease: Power1.easeIn })
     swiper.slidePrev()
   }
 
   const onNextClick = () => {
     const tl = gsap.timeline();
-    tl.fromTo('.mySwiper', { opacity: 0 }, { opacity: 1, duration: 0.5, ease: Power1.easeIn })
+    tl.fromTo('.mySwiper', { opacity: 0 }, { opacity: 1, duration: 1, ease: Power1.easeIn })
     swiper.slideNext()
   }
 

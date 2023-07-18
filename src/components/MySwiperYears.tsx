@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Power1, gsap } from "gsap";
+import { gsap } from "gsap";
 
 interface IMySwiperYears {
   startValue: number;
@@ -13,17 +13,19 @@ const MySwiperYears = (props: IMySwiperYears) => {
 
   useEffect(() => {
     gsap.to(startValueRef.current, {
-      duration: 0.5,
-      innerText: props.startValue,
-      ease: Power1.easeIn
+      duration: 1,
+      innerHTML: props.startValue,
+      snap: "innerHTML",
+      ease: "expo.out",
     });
   }, [props.startValue]);
 
   useEffect(() => {
     gsap.to(endValueRef.current, {
-      duration: 0.5,
-      innerText: props.endValue,
-      ease: Power1.easeIn
+      duration: 1,
+      innerHTML: props.endValue,
+      snap: "innerHTML",
+      ease: "expo.out",
     });
   }, [props.endValue]);
 
