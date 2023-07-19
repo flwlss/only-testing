@@ -153,3 +153,20 @@
     background-color: rgba($color: #42567A, $alpha: 0.3);
   }
 }
+
+.circlePagination {
+  position: absolute;
+  top: 215px;
+  left: 452px;
+  width: 530px;
+  height: 530px;
+  border-radius: 50%;
+  border: 1px solid rgba($color: #42567A, $alpha: 0.2);
+  z-index: 100;
+
+  &__wrapper {
+    position: absolute;
+    left: -4px;
+    top: -4px;
+  }
+}

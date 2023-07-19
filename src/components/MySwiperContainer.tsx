@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper'
 import MySwiper from './MySwiper';
 import MySwiperButtons from './MySwiperButtons';
 import { myObject } from '../common/constants';
 import MySwiperYears from './MySwiperYears';
+import MySwiperPagination from './MySwiperPagination';
 
 const MySwiperContainer = () => {
 
@@ -41,12 +41,8 @@ const MySwiperContainer = () => {
       <div className='mySwiper__container'>
         <div>
           <Swiper
-            // modules={[Pagination]}
-            // pagination={{
-            //   clickable: true,
-            // }}
             speed={0}
-            style={{ display: 'flex', flexDirection: 'column' }}
+            style={{ display: 'flex', flexDirection: 'column', position: 'initial' }}
             onSlideChange={(item) => {
               setSlideIndex(item.activeIndex + 1)
             }}
@@ -72,6 +68,7 @@ const MySwiperContainer = () => {
                 slideIndex={slideIndex}
                 slidesLength={sliderLength} />
             </div>
+            <MySwiperPagination />
           </Swiper>
         </div>
       </div>
