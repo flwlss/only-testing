@@ -29,17 +29,7 @@ const MySwiperPagination = () => {
         const dot = document.createElement('div');
         dot.innerHTML = `<p>${i + 1}</p>`
         dot.id = `${i}`;
-        dot.style.width = '56px';
-        dot.style.height = '56px';
-        dot.style.borderRadius = '50%';
-        dot.style.backgroundColor = '#42567A';
-        dot.style.position = 'absolute';
-        dot.style.cursor = 'pointer';
-        dot.style.color = '#42567A';
-        dot.style.display = 'flex';
-        dot.style.alignItems = 'center';
-        dot.style.justifyContent = 'center';
-        dot.style.fontSize = '20px';
+        dot.className = 'circlePagination__dot'
 
         const angle = i * angleStep;
         const x = radius + dotSpacing * Math.cos(angle);
