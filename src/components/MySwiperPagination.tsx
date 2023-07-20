@@ -3,7 +3,11 @@ import { useSwiper } from 'swiper/react';
 import { myObject } from '../common/constants';
 import { Power1, gsap } from "gsap";
 
-const MySwiperPagination = () => {
+interface IMySwiperPaginationProps {
+  slideIndex: number;
+}
+
+const MySwiperPagination = (props: IMySwiperPaginationProps) => {
 
   const circleRef = useRef<HTMLDivElement>(null);
   const circleWrapperRef = useRef<HTMLDivElement>(null);

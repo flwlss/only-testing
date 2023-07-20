@@ -68,7 +68,7 @@ const MySwiperContainer = () => {
                 slideIndex={slideIndex}
                 slidesLength={sliderLength} />
             </div>
-            <MySwiperPagination />
+            <MySwiperPagination slideIndex={slideIndex} />
           </Swiper>
         </div>
       </div>
