@@ -25,6 +25,10 @@ const MySwiperPagination = () => {
       const angleStep = (2 * Math.PI) / dotsCount; // шаг угла
       const dotSpacing = radius; // расстояние между точками
 
+      if (wrapper.hasChildNodes()) {
+        wrapper.innerHTML = '';
+      }
+
       for (let i = 0; i < dotsCount; i++) {
         const dot = document.createElement('div');
         dot.innerHTML = `<p>${i + 1}</p>`
