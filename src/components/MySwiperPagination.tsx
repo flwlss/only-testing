@@ -53,8 +53,12 @@ const MySwiperPagination = () => {
 
         gsap.to(dot, { scale: 0.1, duration: 0 })
 
+        const rotateDeg = 360 / dotsCount * -dot.id - 45
+
         dot.addEventListener('click', () => {
           selectSlide(+dot.id)
+          gsap.to('.circlePagination', { transform: `rotate(${rotateDeg}deg)` })
+          gsap.to(dot, { transform: `rotate(${-rotateDeg}deg)` })
         })
 
         dot.addEventListener("mouseenter",
