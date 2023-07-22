@@ -13,12 +13,21 @@ const MySwiperPagination = (props: IMySwiperPaginationProps) => {
   const circleWrapperRef = useRef<HTMLDivElement>(null);
   const swiper = useSwiper()
   const [sliderLength, setSliderLength] = useState(Object.keys(myObject).length)
+  const [rotate, setRotate] = useState(0)
 
   const selectSlide = (dotId: number) => {
     swiper.slideTo(dotId)
     const tl = gsap.timeline();
     tl.fromTo('.myNestedSwiper', { opacity: 0 }, { opacity: 1, duration: 1, ease: Power1.easeIn })
   }
+
+  useEffect(() => {
+    const tm = setTimeout(() => {
+      gsap.to('.circlePagination__dot', { scale: 0.1, duration: 0, background: '#42567A', transform: `rotate(${-rotate}deg)` })
+      gsap.to(`.circlePagination__dot:nth-child(${props.slideIndex})`, { scale: 1, border: '1px solid rgba(48, 62, 88, 0.5)', background: '#F4F5F9', duration: 0 })
+    }, 0);
+    return () => clearTimeout(tm)
+  }, [props.slideIndex, rotate])
 
   useEffect(() => {
     const circle = circleRef.current;
@@ -49,28 +58,29 @@ const MySwiperPagination = (props: IMySwiperPaginationProps) => {
         circle.appendChild(wrapper);
         wrapper.appendChild(dot)
 
-        gsap.to(dot, { scale: 0.1, duration: 0 })
-
-        const rotateDeg = 360 / dotsCount * -dot.id - 45
+        const rotateDeg = 360 / dotsCount * -dot.id
 
         dot.addEventListener('click', () => {
           selectSlide(+dot.id)
+          setRotate(rotateDeg)
           gsap.to('.circlePagination', { transform: `rotate(${rotateDeg}deg)` })
           gsap.to(dot, { transform: `rotate(${-rotateDeg}deg)` })
         })
 
-        dot.addEventListener("mouseenter",
-          () => gsap.to(dot,
-            { scale: 1, border: '1px solid rgba(48, 62, 88, 0.5)', background: '#F4F5F9' }
-          ));
+        if (props.slideIndex !== +dot.id + 1) {
+          dot.addEventListener("mouseenter",
+            () => gsap.to(dot,
+              { scale: 1, border: '1px solid rgba(48, 62, 88, 0.5)', background: '#F4F5F9' }
+            ));
 
-        dot.addEventListener("mouseleave",
-          () => gsap.to(dot,
-            { scale: 0.1, border: 'none', background: '#42567A' }
-          ));
+          dot.addEventListener("mouseleave",
+            () => gsap.to(dot,
+              { scale: 0.1, border: 'none', background: '#42567A' }
+            ));
+        }
       }
     }
-  }, [swiper]);
+  }, [swiper, props.slideIndex]);
 
   return (
     <div
