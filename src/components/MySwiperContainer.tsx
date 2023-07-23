@@ -5,6 +5,8 @@ import MySwiperButtons from './MySwiperButtons';
 import { myObject } from '../common/constants';
 import MySwiperYears from './MySwiperYears';
 import MySwiperPagination from './MySwiperPagination';
+import { Pagination } from 'swiper';
+import { Power1, gsap } from "gsap";
 
 const MySwiperContainer = () => {
 
@@ -30,6 +32,11 @@ const MySwiperContainer = () => {
     }
   }, [startValue, endValue, slideIndex])
 
+  useEffect(() => {
+    const tl = gsap.timeline();
+    tl.fromTo('.myNestedSwiper', { opacity: 0 }, { opacity: 1, duration: 1, ease: Power1.easeIn })
+  }, [slideIndex])
+
   return (
     <div className='mySwiper'>
       <div>
@@ -41,6 +48,10 @@ const MySwiperContainer = () => {
       <div className='mySwiper__container'>
         <div>
           <Swiper
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Pagination]}
             speed={0}
             style={{ display: 'flex', flexDirection: 'column', position: 'initial' }}
             onSlideChange={(item) => {
@@ -62,7 +73,7 @@ const MySwiperContainer = () => {
                 <MySwiper keyEvents={myObject.array3} />
               </div>
             </SwiperSlide>
-            <div>
+            <div style={{ marginTop: 20 }}>
               <p className='mySwiper__slides'>{`${slideIndex.toString().padStart(2, '0')}/${sliderLength.toString().padStart(2, '0')}`}</p>
               <MySwiperButtons
                 slideIndex={slideIndex}

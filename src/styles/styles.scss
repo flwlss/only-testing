@@ -142,3 +142,15 @@ body {
     order: 0;
   }
 }
+
+.swiper-pagination-bullet {
+  background-color: #42567A;
+}
+
+.swiper-pagination-bullets {
+  position: absolute;
+
+  @media (min-width: 1440px) {
+    display: none;
+  }
+}
