@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import MySwiper from './MySwiper';
 import MySwiperButtons from './MySwiperButtons';
-import { myObject } from '../common/constants';
+import { keyEvents, themes } from '../common/constants';
 import MySwiperYears from './MySwiperYears';
 import MySwiperPagination from './MySwiperPagination';
 import { Pagination } from 'swiper';
@@ -11,7 +11,7 @@ import { Power1, gsap } from "gsap";
 const MySwiperContainer = () => {
 
   const [slideIndex, setSlideIndex] = useState(1)
-  const [sliderLength, setSliderLength] = useState(Object.keys(myObject).length)
+  const [sliderLength, setSliderLength] = useState(Object.keys(keyEvents).length)
   const [startValue, setStartValue] = useState(2015)
   const [endValue, setEndValue] = useState(2022)
 
@@ -45,6 +45,7 @@ const MySwiperContainer = () => {
           startValue={startValue}
           endValue={endValue} />
       </div>
+      <p className='mySwiper__theme'>{themes(slideIndex)}</p>
       <div className='mySwiper__container'>
         <div>
           <Swiper
@@ -60,17 +61,17 @@ const MySwiperContainer = () => {
             allowTouchMove={false}>
             <SwiperSlide>
               <div>
-                <MySwiper keyEvents={myObject.array1} />
+                <MySwiper keyEvents={keyEvents.keyEvent1} />
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div>
-                <MySwiper keyEvents={myObject.array2} />
+                <MySwiper keyEvents={keyEvents.keyEvent2} />
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div>
-                <MySwiper keyEvents={myObject.array3} />
+                <MySwiper keyEvents={keyEvents.keyEvent3} />
               </div>
             </SwiperSlide>
             <div style={{ marginTop: 20 }}>

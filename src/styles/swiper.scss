@@ -40,6 +40,17 @@
     }
   }
 
+  &__theme {
+    color: #42567A;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+    @media (min-width: 1440px) {
+      display: none;
+    }
+  }
+
   &__slides {
     font-size: 14px;
     color: #42567A;

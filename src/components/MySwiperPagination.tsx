@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useSwiper } from 'swiper/react';
-import { myObject } from '../common/constants';
+import { keyEvents } from '../common/constants';
 import { Power1, gsap } from "gsap";
 
 interface IMySwiperPaginationProps {
@@ -12,7 +12,7 @@ const MySwiperPagination = (props: IMySwiperPaginationProps) => {
   const circleRef = useRef<HTMLDivElement>(null);
   const circleWrapperRef = useRef<HTMLDivElement>(null);
   const swiper = useSwiper()
-  const [sliderLength, setSliderLength] = useState(Object.keys(myObject).length)
+  const [sliderLength, setSliderLength] = useState(Object.keys(keyEvents).length)
   const [rotate, setRotate] = useState(0)
 
   const selectSlide = (dotId: number) => {
