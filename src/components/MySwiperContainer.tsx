@@ -13,8 +13,8 @@ const MySwiperContainer = () => {
 
   const [slideIndex, setSlideIndex] = useState(1)
   const [sliderLength, setSliderLength] = useState(keyEventsLength)
-  const [startValue, setStartValue] = useState(2015)
-  const [endValue, setEndValue] = useState(2022)
+  const [startValue, setStartValue] = useState(1990)
+  const [endValue, setEndValue] = useState(1995)
 
   useEffect(() => {
     switch (slideIndex) {
