@@ -61,3 +61,5 @@ export const themes = (slideIndex: number) => {
 }
 
 export const keyEventsLength = Object.keys(keyEvents).length
+
+export const screenWidth = window.screen.width
