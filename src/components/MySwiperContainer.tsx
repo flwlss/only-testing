@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import MySwiper from './MySwiper';
 import MySwiperButtons from './MySwiperButtons';
-import { keyEvents, themes } from '../common/constants';
+import { keyEvents, keyEventsLength, themes } from '../common/constants';
 import MySwiperYears from './MySwiperYears';
 import MySwiperPagination from './MySwiperPagination';
 import { Pagination } from 'swiper';
 import { Power1, gsap } from "gsap";
+import { rotateAnimation } from '../common/animations';
 
 const MySwiperContainer = () => {
 
   const [slideIndex, setSlideIndex] = useState(1)
-  const [sliderLength, setSliderLength] = useState(Object.keys(keyEvents).length)
+  const [sliderLength, setSliderLength] = useState(keyEventsLength)
   const [startValue, setStartValue] = useState(2015)
   const [endValue, setEndValue] = useState(2022)
 
@@ -33,8 +34,16 @@ const MySwiperContainer = () => {
   }, [startValue, endValue, slideIndex])
 
   useEffect(() => {
+    const tm = setTimeout(() => {
+      rotateAnimation(slideIndex)
+    }, 0);
+    return () => { clearTimeout(tm) }
+  }, [])
+
+  useEffect(() => {
     const tl = gsap.timeline();
     tl.fromTo('.myNestedSwiper', { opacity: 0 }, { opacity: 1, duration: 1, ease: Power1.easeIn })
+    rotateAnimation(slideIndex)
   }, [slideIndex])
 
   return (

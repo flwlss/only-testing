@@ -33,3 +33,5 @@ export const themes = (slideIndex: number) => {
       return 'Тесла'
   }
 }
+
+export const keyEventsLength= Object.keys(keyEvents).length
