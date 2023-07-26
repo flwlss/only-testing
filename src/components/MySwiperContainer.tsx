@@ -19,21 +19,35 @@ const MySwiperContainer = () => {
   useEffect(() => {
     switch (slideIndex) {
       case 1:
-        setStartValue(2015)
-        setEndValue(2022)
+        setStartValue(1990)
+        setEndValue(1995)
         break;
       case 2:
-        setStartValue(1999)
-        setEndValue(2005)
+        setStartValue(2015)
+        setEndValue(2020)
         break;
       case 3:
-        setStartValue(2010)
-        setEndValue(2030)
+        setStartValue(1975)
+        setEndValue(1985)
+        break;
+      case 4:
+        setStartValue(2000)
+        setEndValue(2010)
+        break;
+      case 5:
+        setStartValue(1930)
+        setEndValue(1950)
+        break;
+      case 6:
+        setStartValue(1830)
+        setEndValue(1890)
         break;
     }
   }, [startValue, endValue, slideIndex])
 
   useEffect(() => {
+    const rotateDeg = 360 / keyEventsLength * (-slideIndex + 1) - (360 / keyEventsLength)
+    gsap.to('.circlePagination', { transform: `rotate(${rotateDeg}deg)`, duration: 0 })
     const tm = setTimeout(() => {
       rotateAnimation(slideIndex)
     }, 0);
@@ -42,7 +56,7 @@ const MySwiperContainer = () => {
 
   useEffect(() => {
     const tl = gsap.timeline();
-    tl.fromTo('.myNestedSwiper', { opacity: 0 }, { opacity: 1, duration: 1, ease: Power1.easeIn })
+    tl.fromTo('.myNestedSwiper, .mySwiper__theme', { opacity: 0 }, { opacity: 1, duration: 1, ease: Power1.easeIn })
     rotateAnimation(slideIndex)
   }, [slideIndex])
 
@@ -81,6 +95,21 @@ const MySwiperContainer = () => {
             <SwiperSlide>
               <div>
                 <MySwiper keyEvents={keyEvents.keyEvent3} />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div>
+                <MySwiper keyEvents={keyEvents.keyEvent4} />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div>
+                <MySwiper keyEvents={keyEvents.keyEvent5} />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div>
+                <MySwiper keyEvents={keyEvents.keyEvent6} />
               </div>
             </SwiperSlide>
             <div style={{ marginTop: 20 }}>

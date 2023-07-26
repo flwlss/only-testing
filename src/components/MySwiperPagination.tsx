@@ -13,7 +13,6 @@ const MySwiperPagination = (props: IMySwiperPaginationProps) => {
   const circleWrapperRef = useRef<HTMLDivElement>(null);
   const swiper = useSwiper()
   const [sliderLength, setSliderLength] = useState(keyEventsLength)
-  const [rotate, setRotate] = useState(0)
 
   const selectSlide = (dotId: number) => {
     swiper.slideTo(dotId)
@@ -48,11 +47,8 @@ const MySwiperPagination = (props: IMySwiperPaginationProps) => {
         circle.appendChild(wrapper);
         wrapper.appendChild(dot)
 
-        const rotateDeg = 360 / dotsCount * -dot.id
-
         dot.addEventListener('click', () => {
           selectSlide(+dot.id)
-          setRotate(rotateDeg)
         })
 
         if (props.slideIndex !== +dot.id + 1) {
